@@ -1,0 +1,24 @@
+{
+  "name": "discord-rss",
+  "version": "1.0.0",
+  "description": "A cool and easy way to stay up to date with your rss feeds.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjavad/discord-rss.git"
+  },
+  "author": "Javad Asgari Shafique",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/cjavad/discord-rss/issues"
+  },
+  "homepage": "https://github.com/cjavad/discord-rss#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "node-json-db": "^1.1.0",
+    "xml2js": "^0.4.23"
+  }
+}
