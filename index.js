@@ -31,7 +31,7 @@ function loadProfiles (profilePath) {
 
 function executeProfile(profile) {
     let parser;
-    var request = new Request(profile.name, 1000);
+    var request = new Request(profile.name, config.timeout);
 
     if (profile.type === 'reddit') {
         parser = new RedditParser(profile.rules, profile.axios);

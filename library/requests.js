@@ -7,10 +7,10 @@ const { Config } = require('node-json-db/dist/lib/JsonDBConfig');
 const db = new JsonDB(new Config('db', true, false, '/'));
 
 class Request {
-    constructor (profileName, delay = 100) {
+    constructor (profileName, timeout = 5000) {
         this.path = `/${profileName}`;
         this.stack = [];
-        this.timeout = delay;
+        this.timeout = timeout;
 
         try {
             db.getData(this.path);
