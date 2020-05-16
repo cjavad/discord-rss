@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path')
+const axios = require('axios');
 const config = require('./config.json');
 
 var RedditParser = require('./library/redditParser');
@@ -38,7 +39,7 @@ function executeProfile(profile) {
         parser = new profile.parser(profile.rules, profile.axios);
     }
 
-    Request.getRss(profile.rss)
+    axios.get(profile.rss)
         .then(({ data }) => {
             parser.getEntries(data)
                 .then(entries => {

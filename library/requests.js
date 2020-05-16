@@ -53,11 +53,6 @@ class Request {
     isUnique (reqObj) {
         return !db.getData(this.path).includes(this.getUniqueId(reqObj));
     }
-
-    static getRss (rssUrl) {
-        return axios.get(rssUrl);
-    }
-
 }
 
 module.exports = Request;
