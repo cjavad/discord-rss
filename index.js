@@ -47,7 +47,11 @@ function executeProfile(profile) {
                         request.executeSingle(parser.getRequest(entry), (error, response) => {
                             if (error) {
                                 // Failed sending :sad:
-                                console.log(error);
+                                if (error && typeof response === 'string') {
+                                    console.log('Skipped', request.getUniqueId(entry), 'as', profile.name);
+                                } else {
+                                    console.log(error);
+                                }
                             } else {
                                 console.log('Pushed', request.getUniqueId(entry), 'as', profile.name);
                             }
