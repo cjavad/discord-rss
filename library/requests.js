@@ -47,7 +47,7 @@ class Request {
     }
 
     getUniqueId (reqObj) {
-        return crypto.createHash('sha256').update(reqObj.toString()).digest('hex');
+        return crypto.createHash('sha256').update(JSON.stringify(reqObj)).digest('hex');
     }
 
     isUnique (reqObj) {
