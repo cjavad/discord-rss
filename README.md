@@ -10,7 +10,9 @@ Profiles also allows you to set regex rules to filter out specific posts, such a
 
 Per default this program is targeted towards discord webhooks but due to the wide extensibilty of the parser class you could format your data to any kind of webhook or http endpoint.
 
-When creating your own parser you have to overwrite to function in the `Parser` class, that would be `toEntries` and `toRequest`.
+### Parser
+
+When creating your own parser you have to overwrite to function in the `Parser` class, that would be `toEntries` and `toEmbed`.
 
 ```js
 // require base class
@@ -31,5 +33,33 @@ class MyParser extends Parser {
     toEmbed (entry) {
 
     }
+}
+```
+
+### Profile format
+
+```js
+module.exports = {
+    type: 'reddit', // reddit or custom (module.exports.parser has to be defined if type is custom)
+    rss: 'https://reddit.com/r/subreddit', // direct http url for the plaintext/xml rss feed
+    rules: [
+        {
+            regex: /Regex\ to \ match/i,
+            match: 'keyToUseRegex',
+        },
+        ...
+    ],
+    webhooks: [
+        {
+            url: 'https://discordapp.com/api/webhooks/', // discord webhook url
+            options: { // Non embed per message options such as content to mention a user or role
+                content: '<@roleid>',
+                allowed_mentions: {
+                    parse: ['roles']
+                }
+            }
+        },
+        ...
+    ]
 }
 ```
