@@ -2,7 +2,6 @@
  * Example reddit profile for r/manga rss feed
  */
 module.exports = {
-    name: 'rmanga',
     type: 'reddit',
     rss: 'https://reddit.com/r/manga.rss',
     rules: [
@@ -15,11 +14,12 @@ module.exports = {
             match: 'url'
         }
     ],
-    axios: {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        url: 'https://discordapp.com/api/webhooks/'
-    }
+    webhooks: [
+        {
+            url: 'https://discordapp.com/api/webhooks/',
+            options: {
+                content: 'Hello'
+            }
+        }
+    ]
 }

@@ -22,21 +22,17 @@ module.exports = class RedditParser extends Parser {
         return entries;
     }
 
-    toRequest (entry) {
+    toEmbed (entry) {
         return {
-            embeds: [
-                {
-                    title: entry.title,
-                    url: entry.url,
-                    author: {
-                        name: entry.authorName,
-                        url: entry.authorUrl
-                    },
-                    thumbnail: {
-                        url: entry.links.filter(x => /thumb/.test(x))[0] || ''
-                    }
-                }
-            ]
+            title: entry.title,
+            url: entry.url,
+            author: {
+                name: entry.authorName,
+                url: entry.authorUrl
+            },
+            thumbnail: {
+                url: entry.links.filter(x => /thumb/.test(x))[0] || ''
+            }
         }
     }
 }

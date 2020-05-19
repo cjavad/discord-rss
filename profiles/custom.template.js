@@ -37,23 +37,18 @@ class MangadexParser extends Parser {
         return entries;
     }
 
-    toRequest (entry) {
+    toEmbed (entry) {
         return {
-            embeds: [
-                {
-                    title: entry.title,
-                    url: entry.link,
-                    thumbnail: {
-                        url: entry.imageLink
-                    }
-                }
-            ]
+            title: entry.title,
+            url: entry.link,
+            thumbnail: {
+                url: entry.imageLink
+            }
         }
     }
 }
 
 module.exports = {
-    name: 'mangadex',
     type: 'custom',
     rss: 'https://mangadex.org/rss/',
     rules: [
@@ -62,12 +57,13 @@ module.exports = {
             match: 'description'
         }
     ],
-    axios: {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        url: 'https://discordapp.com/api/webhooks/'
-    },
+    webhooks: [
+        {
+            url: 'https://discordapp.com/api/webhooks/',
+            options: {
+                content: 'Hello'
+            }
+        }
+    ],
     parser: MangadexParser
 }

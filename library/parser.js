@@ -1,13 +1,7 @@
 const xml2js = require("xml2js");
 
 module.exports = class Parser {
-    constructor (rules = [], {method, url, headers}) {
-        this.axiosOptions = {
-            method: method,
-            url: url,
-            headers: headers,
-            data: ''
-        }
+    constructor (rules = []) {
         this.entryRules = rules;
     }
     
@@ -57,13 +51,7 @@ module.exports = class Parser {
      */
 
     // Overwrite this
-    toRequest(entry) {
+    toEmbed(entry) {
         
-    }
-
-    getRequest(entry) {
-        var settings = Object.create(this.axiosOptions);
-        settings.data = this.toRequest(entry);
-        return settings;
     }
 }
