@@ -9,7 +9,7 @@ module.exports = class Parser {
      * Takes parsed xml (by xml2js)
      * @param {object} parsedXml 
      * 
-     * And outputs a list of entries this.toRequest can handle
+     * And outputs a list of entries Parser#toEmbed can handle
      */
 
     // Overwrite this.
@@ -47,7 +47,7 @@ module.exports = class Parser {
     /**
      * Takes a single entry produced by this.toEntries
      * @param {object} entry 
-     * And output the data to be sent to this.axiosOptions.url
+     * And output a discord embed
      */
 
     // Overwrite this

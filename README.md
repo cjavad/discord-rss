@@ -26,9 +26,9 @@ class MyParser extends Parser {
     }
 
     // entry is a single entry made by Parser#toEntries()
-    // should return the data sent via axios for example a discord webhook
+    // should return a discord embed object
     // https://discord.com/developers/docs/resources/webhook#execute-webhook
-    toRequest (entry) {
+    toEmbed (entry) {
 
     }
 }
