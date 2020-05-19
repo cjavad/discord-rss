@@ -59,8 +59,6 @@ class Request {
 
     executeSingle (reqObj, callback = (error, response) => {}) {
         if (!this.isUnique(reqObj)) { callback(true, this.isUnique(reqObj)) ; return; }
-        
-        console.log(reqObj);
 
         setTimeout(() => {
             axios(reqObj)
